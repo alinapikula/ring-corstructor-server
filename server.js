@@ -4,12 +4,14 @@ const app = express();
 const cors = require('cors');
 const router = require('express').Router();
 const rowListRoute = require('./routes/rowList.js')
+const usersRoute = require('./routes/users.js')
 const PORT = process.env.PORT || 5050;
 
 app.use(express.json());
 app.use(cors());
 
 app.use('/', rowListRoute);
+app.use('/', usersRoute);
 
 app.get('/', (_req,res) =>{
     res.status(200).json("Welcom to Ring Constructor server!")
